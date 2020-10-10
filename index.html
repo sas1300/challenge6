@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,62 +9,79 @@
 
 
 </head>
+
 <body>
 
     <!--Focus on the daily forecast first, then the five day forecast, then making it pretty, and then the search history-->
+
     <header>
         <h1 class="page-title">Weather Dashboard</h1>
     </header>
 
-        <form id="search-form">
-            <h2>Search for a City</h2>
+    <!--Search form and button-->
+    <form id="search-form">
+        <h2>Search for a City</h2>
 
-            <div id="search-box">
-                <input type="text" id="city"/>
-            </div>
-            <button type="submit" id="search">search</button>
-        </form>
-
-        <section id="search-history">
-
-        </section>
-
-        <div id="currentWeather">
-            <h4 id="currentWeatherCity"></h4>
-            <p id="temp"></p>
-            <p id="humidity"></p>
-            <p id="windspeed"></p>
-            <p id="uvi"></p>
+        <div id="search-box">
+            <input type="text" id="city" />
         </div>
+        <button type="submit" id="search">search</button>
+    </form>
+
+
+    <!--Search History Section-->
+    <section id="search-history">
+
+    </section>
+
+    <!-- Current Weather Section-->
+
+    <section id="currentWeather">
+        <h4 id="currentWeatherCity">City</h4>
+        <p id="temp">Temp</p>
+        <p id="humidity">Humidity</p>
+        <p id="windspeed">Windspeed</p>
+        <p id="uvi">UVI</p>
+
+        <div id="currentDay"></div>
+    </section>
 
 
 
-    
+    <!--Five Day Forcast section-->
+
+    <div id="fiveDay">
+
+    </div>
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<script src="./assets/script.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
+
 </html>
 
 
-<!-- Things I need --> 
-    <!--Main Header-->  
+<!-- Things I need -->
+<!--Main Header-->
 
-    <!--Form columns and rows?  Boxes?  -->
+<!--Form columns and rows?  Boxes?  -->
 
-    <!--One column with a heading, search box and 8 rows for city names that 
+<!--One column with a heading, search box and 8 rows for city names that 
         when selected return information into the city row search history-->
-            <!--Button-->
-            <!--need to be able to clear text box after each search-->
-            <!--need to be able to add city searched for to the search history list-->
-                <!--Store in local storage-->
+<!--Button-->
+<!--need to be able to clear text box after each search-->
+<!--need to be able to add city searched for to the search history list-->
+<!--Store in local storage-->
 
-    <!--One big row for city-->
-        <!--Needs to:
+<!--One big row for city-->
+<!--Needs to:
             show city selected, current date, temp, humidity, wind speed and UV index get from API, Need icon that reflects current weather -->
-            <!--the UV index must show a color representative of favorable, moderate or severe-->
+<!--the UV index must show a color representative of favorable, moderate or severe-->
 
-    <!--One row for the five cards Future Weather condiditons-->
-            <!--Header "Five Day Forcast"-->
-            <!-- return information future weather info from API-->
+<!--One row for the five cards Future Weather condiditons-->
+<!--Header "Five Day Forcast"-->
+<!-- return information future weather info from API-->
