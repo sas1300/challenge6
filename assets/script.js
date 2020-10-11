@@ -15,6 +15,7 @@ $("#search").on("click", function (event) {
             //Current Day
                 .then(function (response_two) {
                     console.log(response_two);
+
                     document.querySelector("#currentWeatherCity").innerHTML = response.name;
                     document.querySelector("#temp").innerHTML = "Temperature: " + ((response_two.current.temp - 273.15) * 9 / 5 + 32).toFixed(1) + " °F";
                     document.querySelector("#humidity").innerHTML = "Humidity: " + response_two.current.humidity + "%";
@@ -24,10 +25,14 @@ $("#search").on("click", function (event) {
 
             //Five-Day Forcast
                 for (i = 1; i < 6; i++) {
-                    document.querySelector("#forcastTemp").innerHTML = "Temp: " + ((response_two.daily[i].temp.day - 273.15) * 9 / 5 + 32).toFixed(1) + " °F";
-                    console.log(forcastTemp);
-
-                    document.querySelector("#forcastHumidity").innerHTML = "Humidity: " + response_two.daily[i].humidity + "%";
+                    document.querySelector("#fiveDay").innerHTML += `<section class="forcast">
+                    
+                    Temp: ${((response_two.daily[i].temp.day - 273.15) * 9 / 5 + 32).toFixed(1) + " °F"}
+                    
+                    Humidity: ${response_two.daily[i].humidity + "%"}
+                    
+                    </section>`;
+                    console.log(fiveDay);
 
                    } 
         
