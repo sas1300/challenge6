@@ -18,8 +18,11 @@ $("#search").on("click", function (event) {
 
                     document.querySelector("#currentWeatherCity").innerHTML = response.name;
 
-                    var currentDay = moment().format("M/D/YYYY");
-                    $("#currentDate").text(currentDay);
+                    //document.querySelector("#currentDate").innerHTML = response_two.current.dt;
+
+                    var currentDate = moment().format("M/D/YYYY");
+                    $("#currentDate").text(currentDate);
+
 
                     document.querySelector("#temp").innerHTML = "Temperature: " + ((response_two.current.temp - 273.15) * 9 / 5 + 32).toFixed(1) + " °F";
                     document.querySelector("#humidity").innerHTML = "Humidity: " + response_two.current.humidity + "%";
@@ -27,11 +30,13 @@ $("#search").on("click", function (event) {
                     document.querySelector("#uvi").innerHTML = "UV Index: " + response_two.current.uvi;
                 
 
-            //Five-Day Forcast
+            //Five-Day Forecast
+           
                 for (i = 1; i < 6; i++) {
-                    document.querySelector("#fiveDay").innerHTML += `<section class="forcast">
+                    document.querySelector("#fiveDay").innerHTML += `<section class="forecast">
 
-                    ${moment(currentDate[i])}
+                    
+                   ${response_two.daily[i].dt}
                     
                     Temp: ${((response_two.daily[i].temp.day - 273.15) * 9 / 5 + 32).toFixed(1) + " °F"}
                     
