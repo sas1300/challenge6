@@ -17,6 +17,10 @@ $("#search").on("click", function (event) {
                     console.log(response_two);
 
                     document.querySelector("#currentWeatherCity").innerHTML = response.name;
+
+                    var currentDay = moment().format("M/D/YYYY");
+                    $("#currentDate").text(currentDay);
+
                     document.querySelector("#temp").innerHTML = "Temperature: " + ((response_two.current.temp - 273.15) * 9 / 5 + 32).toFixed(1) + " °F";
                     document.querySelector("#humidity").innerHTML = "Humidity: " + response_two.current.humidity + "%";
                     document.querySelector("#windspeed").innerHTML = "Windspeed: " + response_two.current.wind_speed + " MPH";
@@ -26,10 +30,13 @@ $("#search").on("click", function (event) {
             //Five-Day Forcast
                 for (i = 1; i < 6; i++) {
                     document.querySelector("#fiveDay").innerHTML += `<section class="forcast">
+
+                    ${moment(currentDate[i])}
                     
                     Temp: ${((response_two.daily[i].temp.day - 273.15) * 9 / 5 + 32).toFixed(1) + " °F"}
                     
                     Humidity: ${response_two.daily[i].humidity + "%"}
+
                     
                     </section>`;
                     console.log(fiveDay);
@@ -44,18 +51,12 @@ $("#search").on("click", function (event) {
                         //     UVI:
                         //     Humdiity
                         //     </div>`);
-                })
-            
+                })         
         })
-            //write code to redesign website with info from response_two HERE
-            //Need to take city entered in search box and make it show up in the currentWeather section
-
-
 
 })
 
-var currentDay = moment().format("M/D/YYYY");
-$("#currentDate").text(currentDay);
+
 
 
 
