@@ -12,19 +12,23 @@ $("#search").on("click", function (event) {
                 url: `https://api.openweathermap.org/data/2.5/onecall?lat=${response.coord.lat}&lon=${response.coord.lon}&exclude=hourly,minutely,alerts&appid=2d9d72c389eae1fae1c3cb891c1a3794`,
                 method: "GET"
             })
+            //Current Day
                 .then(function (response_two) {
                     console.log(response_two);
                     document.querySelector("#currentWeatherCity").innerHTML = response.name;
-                    document.querySelector("#temp").innerHTML = "Temp: " + ((response_two.current.temp - 273.15) * 9 / 5 + 32).toFixed(1);
+                    document.querySelector("#temp").innerHTML = "Temperature: " + ((response_two.current.temp - 273.15) * 9 / 5 + 32).toFixed(1) + " °F";
+                    document.querySelector("#humidity").innerHTML = "Humidity: " + response_two.current.humidity + "%";
+                    document.querySelector("#windspeed").innerHTML = "Windspeed: " + response_two.current.wind_speed + " MPH";
+                    document.querySelector("#uvi").innerHTML = "UV Index: " + response_two.current.uvi;
 
-                    for (i = 0; i < 5; i++) {
-                        //this is the vanilla javscript version
-                        document.querySelector("#fiveDay").innerHTML += `<div class="forecast">
+            //Five-Day Forcast
+                for (i = 1; i < 6; i++) {
+                    //this is the vanilla javscript version
+                    document.querySelector("#forcastTemp").innerHTML = "Temp: " + response_two.daily.temp;
+                    document.querySelector("#forcastHumidity").innerHTML = "Humidity: " + response_two.daily.humidity;
 
-                        Temp: ${response_two.daily[i].temp.day}
-                        UVI: 
-                        Humidity: 
-                        </div>`;
+                    response_two.daily[i].temp.day} 
+        
 
                         //this is the jQuery version. both do the same thing
                         // $("#fiveDay").append(`<div class="forecast">
@@ -33,18 +37,17 @@ $("#search").on("click", function (event) {
                         //     UVI:
                         //     Humdiity
                         //     </div>`);
-                    }
-                })
+            })
+        })
             //write code to redesign website with info from response_two HERE
             //Need to take city entered in search box and make it show up in the currentWeather section
 
 
 
-        })
 })
 
-var currentDay = moment().format("dddd, MMMM Do");
-$("#currentDay").text(currentDay);
+var currentDay = moment().format("M/D/YYYY");
+$("#currentDate").text(currentDay);
 
 
 
