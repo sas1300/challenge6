@@ -20,14 +20,16 @@ $("#search").on("click", function (event) {
                     document.querySelector("#humidity").innerHTML = "Humidity: " + response_two.current.humidity + "%";
                     document.querySelector("#windspeed").innerHTML = "Windspeed: " + response_two.current.wind_speed + " MPH";
                     document.querySelector("#uvi").innerHTML = "UV Index: " + response_two.current.uvi;
+                
 
             //Five-Day Forcast
                 for (i = 1; i < 6; i++) {
-                    //this is the vanilla javscript version
-                    document.querySelector("#forcastTemp").innerHTML = "Temp: " + response_two.daily.temp;
-                    document.querySelector("#forcastHumidity").innerHTML = "Humidity: " + response_two.daily.humidity;
+                    document.querySelector("#forcastTemp").innerHTML = "Temp: " + ((response_two.daily[i].temp.day - 273.15) * 9 / 5 + 32).toFixed(1) + " °F";
+                    console.log(forcastTemp);
 
-                    response_two.daily[i].temp.day} 
+                    document.querySelector("#forcastHumidity").innerHTML = "Humidity: " + response_two.daily[i].humidity + "%";
+
+                   } 
         
 
                         //this is the jQuery version. both do the same thing
@@ -37,7 +39,8 @@ $("#search").on("click", function (event) {
                         //     UVI:
                         //     Humdiity
                         //     </div>`);
-            })
+                })
+            
         })
             //write code to redesign website with info from response_two HERE
             //Need to take city entered in search box and make it show up in the currentWeather section
