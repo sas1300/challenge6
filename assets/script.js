@@ -22,6 +22,7 @@ $("#search").on("click", function (event) {
 
                     var currentDate = moment().format("M/D/YYYY");
                     $("#currentDate").text(currentDate);
+                    
 
 
                     document.querySelector("#temp").innerHTML = "Temperature: " + ((response_two.current.temp - 273.15) * 9 / 5 + 32).toFixed(1) + " °F";
@@ -35,8 +36,7 @@ $("#search").on("click", function (event) {
                 for (i = 1; i < 6; i++) {
                     document.querySelector("#fiveDay").innerHTML += `<section class="forecast">
 
-                    
-                   ${response_two.daily[i].dt}
+                   Date: ${moment.unix(response_two.daily[i].dt).format("M/D/YYYY")}
                     
                     Temp: ${((response_two.daily[i].temp.day - 273.15) * 9 / 5 + 32).toFixed(1) + " °F"}
                     
@@ -44,7 +44,7 @@ $("#search").on("click", function (event) {
 
                     
                     </section>`;
-                    console.log(fiveDay);
+                    
 
                    } 
         
