@@ -26,5 +26,6 @@ During this project I found it very difficult to recall all of the information w
 
 **URL to published site:**   https://sas1300.github.io/challenge6/
 
-## Screenshot
-![image](/images/screenshot.jpg)
+## Screenshot of Project
+
+![screenshot](/assets/images/screenshot.jpg)
