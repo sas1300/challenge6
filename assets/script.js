@@ -24,7 +24,7 @@ $("#search").on("click", function (event) {
                     $("#currentDate").text(currentDate);
 
         
-                    document.querySelector("#iconCurrent").innerHTML = "" + response_two.current.weather.icon;
+                    //document.querySelector("#iconCurrent").innerHTML = "" + response_two.current.weather.icon;  
                     
 
 
