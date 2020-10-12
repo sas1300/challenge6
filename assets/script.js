@@ -22,6 +22,9 @@ $("#search").on("click", function (event) {
 
                     var currentDate = moment().format("M/D/YYYY");
                     $("#currentDate").text(currentDate);
+
+        
+                    document.querySelector("#iconCurrent").innerHTML = "" + response_two.current.weather.icon;
                     
 
 
@@ -29,21 +32,25 @@ $("#search").on("click", function (event) {
                     document.querySelector("#humidity").innerHTML = "Humidity: " + response_two.current.humidity + "%";
                     document.querySelector("#windspeed").innerHTML = "Windspeed: " + response_two.current.wind_speed + " MPH";
                     document.querySelector("#uvi").innerHTML = "UV Index: " + response_two.current.uvi;
+
+                    
                 
 
             //Five-Day Forecast
+
+            
            
                 for (i = 1; i < 6; i++) {
                     document.querySelector("#fiveDay").innerHTML += `<section class="forecast">
 
-                   Date: ${moment.unix(response_two.daily[i].dt).format("M/D/YYYY")}
+                   ${moment.unix(response_two.daily[i].dt).format("M/D/YYYY")}
                     
                     Temp: ${((response_two.daily[i].temp.day - 273.15) * 9 / 5 + 32).toFixed(1) + " °F"}
                     
                     Humidity: ${response_two.daily[i].humidity + "%"}
 
-                    
                     </section>`;
+                    
                     
 
                    } 
@@ -60,7 +67,9 @@ $("#search").on("click", function (event) {
         })
 
 })
-
+//Need to clear search field.  One of these maybe?  Where to put?
+//   $(searchField).val("");
+// document.getElementById("searchField").value = "";
 
 
 
