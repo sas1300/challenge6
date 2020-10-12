@@ -16,11 +16,15 @@ To create this Weather Dashboard the following were used:
 * Moment.js
 * fontawesome.com
 
+## Sucessess & Challenges
+During this project I found it very difficult to recall all of the information we have learned and apply it to creating a functioning and visually pleasing Weather Dashboard. I struggled with styling the dashboard and was not able to get the visual aspect to match the mock-up.   I did have success in getting the API functions working properly and was able to present the user with the most of the appropriate data.  
+
 
 ## Links
 
 **Link to GitHub Repository:**  https://github.com/sas1300/challenge6.git
+
 **URL to published site:**   https://sas1300.github.io/challenge6/
 
 ## Screenshot
-![Screenshot](./assets/images/screenshot.jpg)
+![image](./assets/images/screenshot.jpg)
